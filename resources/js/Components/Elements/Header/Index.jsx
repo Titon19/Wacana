@@ -16,21 +16,26 @@ const Index = () => {
                         Wacana.
                     </Link>
                     <ul>
-                        <li className="hidden sm:flex gap-6 font-semibold items-center">
+                        <li className="hidden md:flex gap-6 font-semibold items-center shrink-0">
                             <Link
-                                href={"/home"}
-                                className={` transition-all duration-300 ease-in-out text-sm ${
+                                href={route("home.index")}
+                                className={`hover:rounded-badge hover:bg-neutral-800 px-3 py-1 transition-all duration-300 ease-in-out text-sm ${
                                     window.location.pathname === "/home"
-                                        ? "bg-neutral-800 rounded-badge px-3 py-2 text-neutral-100"
+                                        ? "bg-neutral-800 rounded-badge px-3 py-1  text-neutral-100"
                                         : "text-neutral-400"
                                 }`}
                             >
                                 Home
                             </Link>
                             <Link
-                                href={"/events"}
-                                className={`transition-all duration-300 ease-in-out text-sm ${
-                                    window.location.pathname === "/events"
+                                href={route("events.index")}
+                                className={`hover:rounded-badge hover:bg-neutral-800 px-3 py-1 transition-all duration-300 ease-in-out text-sm ${
+                                    window.location.pathname === "/events" ||
+                                    window.location.pathname ===
+                                        "/events/create" ||
+                                    window.location.pathname ===
+                                        "/events/show" ||
+                                    window.location.pathname === "events/edit"
                                         ? "bg-neutral-800 rounded-badge text-neutral-100 px-3 py-1"
                                         : "text-neutral-400"
                                 }`}
@@ -82,16 +87,31 @@ const Index = () => {
                         >
                             <li>
                                 <Link
-                                    href={"/home"}
-                                    className=" hover:text-neutral-100 hover:bg-neutral-800 transition-all duration-300 ease-in-out"
+                                    href={route("home.index")}
+                                    className={`  hover:text-neutral-100 hover:bg-neutral-800 transition-all duration-300 ease-in-out  ${
+                                        window.location.pathname === "/home"
+                                            ? "bg-neutral-800"
+                                            : ""
+                                    }`}
                                 >
                                     Home
                                 </Link>
                             </li>
                             <li>
                                 <Link
-                                    href={"/events"}
-                                    className=" hover:text-neutral-100 hover:bg-neutral-800 transition-all duration-300 ease-in-out"
+                                    href={route("events.index")}
+                                    className={`hover:text-neutral-100 hover:bg-neutral-800 transition-all duration-300 ease-in-out  ${
+                                        window.location.pathname ===
+                                            "/events" ||
+                                        window.location.pathname ===
+                                            "/events/create" ||
+                                        window.location.pathname ===
+                                            "/events/show" ||
+                                        window.location.pathname ===
+                                            "events/edit"
+                                            ? "bg-neutral-800"
+                                            : ""
+                                    }`}
                                 >
                                     Event
                                 </Link>
@@ -99,7 +119,11 @@ const Index = () => {
                             <li>
                                 <Link
                                     href={route("profile.edit")}
-                                    className=" hover:text-neutral-100 hover:bg-neutral-800 transition-all duration-300 ease-in-out"
+                                    className={`  hover:text-neutral-100 hover:bg-neutral-800 transition-all duration-300 ease-in-out  ${
+                                        window.location.pathname === "/profile"
+                                            ? "bg-neutral-800"
+                                            : ""
+                                    }`}
                                 >
                                     Profile
                                 </Link>
